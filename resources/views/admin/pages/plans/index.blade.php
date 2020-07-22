@@ -5,7 +5,7 @@
 
 
 @section('content_header')
-    <h1>Dash</h1>
+    <h1>Dash <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
 @endsection
 
 @section('content')
