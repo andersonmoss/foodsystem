@@ -1,8 +1,15 @@
 <?php
 
 Route::prefix('admin')
-        ->namespace()
+        ->namespace('admin')
         ->group(function(){
+            
+            // Routes Plans
+
+            Route::get('plans/{url}/details', 'PlanDetailController@index')->name('plan.details.index');
+
+            // Routes Plans
+
             Route::any('plans/search', 'PlanController@search')->name('plans.search');
             Route::get('plans', 'PlanController@index')->name('plans.index');
             Route::get('plans/create', 'PlanController@create')->name('plans.create');
