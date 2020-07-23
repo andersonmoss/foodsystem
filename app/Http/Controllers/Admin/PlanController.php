@@ -62,4 +62,20 @@ class PlanController extends Controller
             'filters' => $filters
         ]);
     }
+
+    public function edit($url){
+        $plan = $this->repository->where('url',$url)->first();
+        return view('admin.pages.plans.edit', [
+            'plan' => $plan
+        ]);
+    }
+
+    public function update(Request $request, $id){
+        $data = $request->all();
+        $data['url'] = Str::kebab($data['name']);
+
+        $this->repository->find($id)->update($data);
+
+        return redirect()->route('plans.index');
+    }
 }
