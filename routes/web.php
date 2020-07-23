@@ -7,6 +7,8 @@ Route::post('admin/plans', 'Admin\PlanController@store')->name('plans.store');
 Route::get('admin/plans/{url}', 'Admin\PlanController@show')->name('plans.show');
 Route::delete('admin/plans/{url}', 'Admin\PlanController@destroy')->name('plans.destroy');
 
+// Route::get('admin/', 'Admin\PlanController@destroy')->name('admin.destroy');
+
 
 Route::get('/', function () {
     return view('welcome');

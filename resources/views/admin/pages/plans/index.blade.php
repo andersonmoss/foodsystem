@@ -5,7 +5,13 @@
 
 
 @section('content_header')
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="{{route('plans.index')}}">Planos</a></li>
+    </ol>
+
     <h1>Dash <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
+    
 @endsection
 
 @section('content')
