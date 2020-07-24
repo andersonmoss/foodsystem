@@ -99,7 +99,6 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         $this->repository->find($id)->delete();
-
-        return redirect()->route('profiles.index');
+        return redirect()->back();
     }
 }
