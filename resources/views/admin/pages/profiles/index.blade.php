@@ -17,7 +17,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="" method="post" class="form form-inline">
+            <form action="{{route('profiles.search')}}" method="post" class="form form-inline">
                 @csrf
                 <input type="text" name="name" placeholder="Nome" class="form-control" value="{{ $filters['name'] ?? ''}}">
 

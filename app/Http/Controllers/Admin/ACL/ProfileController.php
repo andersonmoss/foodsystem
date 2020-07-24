@@ -103,4 +103,15 @@ class ProfileController extends Controller
 
         return redirect()->route('profiles.index');
     }
+
+    public function search(Request $request) {
+        $filters = $request->except('_token');
+
+        $profiles = $this->repository->search($request['name']);
+
+        return view('admin.pages.profiles.index', [
+            'profiles' => $profiles,
+            'filters' => $filters
+        ]);
+    }
 }
