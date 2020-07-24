@@ -11,6 +11,9 @@ Route::prefix('admin')
             Route::post('plans/{url}/details', 'PlanDetailController@store')->name('plans.details.store');
             Route::get('plans/{url}/details/{detailId}/edit', 'PlanDetailController@edit')->name('plans.details.edit');
             Route::put('plans/{url}/details/{detailId}', 'PlanDetailController@update')->name('plans.details.update');
+            Route::get('plans/{url}/details/{detailId}', 'PlanDetailController@show')->name('plans.details.show');
+            Route::delete('plans/{url}/details/{detailId}', 'PlanDetailController@destroy')->name('plans.details.destroy');
+
 
             // Routes Plans
 

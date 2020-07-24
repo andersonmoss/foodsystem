@@ -75,4 +75,28 @@ class PlanDetailController extends Controller
         
         return redirect()->route('plans.details.index', $plan->url);
     }
+
+    public function show($url, $detailId) {
+        $plan = $this->plan->where('url', $url)->first();
+        $detail = $this->repository->find($detailId);
+
+        if(!$plan || !$detail) return redirect()->back();
+
+        return view('admin.pages.plans.details.show', [
+            'plan' => $plan,
+            'detail' => $detail,
+        ]);
+    }
+
+    public function destroy($url, $detailId){
+        $plan = $this->plan->where('url', $url)->first();
+        $detail = $this->repository->find($detailId);
+
+        if(!$plan || !$detail) return redirect()->back();
+
+        $detail->delete();
+        
+        return redirect()->route('plans.details.index', $plan->url)
+                         ->with('message', 'Registro deletado com sucesso!');
+    }
 }
