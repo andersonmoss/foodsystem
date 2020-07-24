@@ -9,10 +9,10 @@
         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{route('plans.index')}}">Planos</a></li>
         <li class="breadcrumb-item"><a href="{{route('plans.show', $plan->url)}}">{{ $plan->name }}</a></li>
-        <li class="breadcrumb-item active"><a href="{{route('plan.details.index',  $plan->url)}}">Detalhes</a></li>
+        <li class="breadcrumb-item active"><a href="{{route('plans.details.index',  $plan->url)}}">Detalhes</a></li>
     </ol>
 
-    <h1>Detalhes do plano <b>{{ $plan->name }}</b> <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
+    <h1>Detalhes do plano <b>{{ $plan->name }}</b> <a href="{{route('plans.details.create', $plan->url)}}" class="btn btn-dark">ADD</a> </h1>
     
 @endsection
 
@@ -30,11 +30,11 @@
                 <tbody>
                     @foreach ($details as $detail)
                         <tr>
-                            <td>{{$plan->name}}</td>
+                            <td>{{$detail->name}}</td>
                             
                             <td>
-                                <a href="{{route('plans.edit', $plan->url)}}" class="btn btn-info">Editar</a>
-                                <a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">VER</a>
+                                <a href="#" class="btn btn-info">Editar</a>
+                                <a href="#" class="btn btn-warning">VER</a>
                             </td>
                         </tr>
                     @endforeach

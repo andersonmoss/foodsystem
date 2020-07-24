@@ -20,7 +20,7 @@ class PlanDetailController extends Controller
     public function index($url){
         $plan = $this->plan->where('url', $url)->first();
 
-        if(!$plan) return redirect()->back('');
+        if(!$plan) return redirect()->back();
 
         $details = $plan->details()->paginate();
 
@@ -28,5 +28,27 @@ class PlanDetailController extends Controller
             'plan' => $plan,
             'details' => $details,
         ]);
+    }
+
+    public function create($url) {
+        $plan = $this->plan->where('url', $url)->first();
+
+        if(!$plan) return redirect()->back();
+
+        return view('admin.pages.plans.details.create', compact('plan'));
+    }
+
+    public function store(Request $request, $url){
+        $plan = $this->plan->where('url', $url)->first();
+
+        if(!$plan) return redirect()->back();
+
+        // $data = $request->all();
+        // $data['plan_id'] = $plan->id;
+
+        // $this->repository->create($data);
+
+        $plan->details()->create($request->all());
+        return redirect()->route('plans.details.index', $plan->url);
     }
 }
