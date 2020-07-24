@@ -5,10 +5,12 @@ Route::prefix('admin')
         ->group(function(){
             
             // Routes Plans
-
+            
             Route::get('plans/{url}/details', 'PlanDetailController@index')->name('plans.details.index');
             Route::get('plans/{url}/details/create', 'PlanDetailController@create')->name('plans.details.create');
             Route::post('plans/{url}/details', 'PlanDetailController@store')->name('plans.details.store');
+            Route::get('plans/{url}/details/{detailId}/edit', 'PlanDetailController@edit')->name('plans.details.edit');
+            Route::put('plans/{url}/details/{detailId}', 'PlanDetailController@update')->name('plans.details.update');
 
             // Routes Plans
 

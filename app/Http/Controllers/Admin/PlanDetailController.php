@@ -51,4 +51,27 @@ class PlanDetailController extends Controller
         $plan->details()->create($request->all());
         return redirect()->route('plans.details.index', $plan->url);
     }
+
+    public function edit($url, $detailId) {
+        $plan = $this->plan->where('url', $url)->first();
+        $detail = $this->repository->find($detailId);
+
+        if(!$plan || !$detail) return redirect()->back();
+
+        return view('admin.pages.plans.details.edit', [
+            'plan' => $plan,
+            'detail' => $detail,
+        ]);
+    }
+
+    public function update(Request $request, $url, $detailId){
+        $plan = $this->plan->where('url', $url)->first();
+        $detail = $this->repository->find($detailId);
+
+        if(!$plan || !$detail) return redirect()->back();
+
+        $detail->update($request->all());
+        
+        return redirect()->route('plans.details.index', $plan->url);
+    }
 }
