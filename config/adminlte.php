@@ -237,6 +237,12 @@ return [
             'icon' => 'fas fa-list-ol',
             
         ],
+        [
+            'text' => 'Perfils',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-address-book',
+            
+        ],
     ],
 
     /*
