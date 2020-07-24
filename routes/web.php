@@ -25,6 +25,10 @@ Route::prefix('admin')
             Route::delete('plans/{url}', 'PlanController@destroy')->name('plans.destroy');
             Route::get('plans/{url}/edit', 'PlanController@edit')->name('plans.edit');
             Route::put('plans/{url}', 'PlanController@update')->name('plans.update');
+
+            // Routes Profiles
+
+            Route::resource('profiles', 'ACL\ProfileController');
 });
 
 
