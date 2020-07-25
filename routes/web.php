@@ -27,8 +27,12 @@ Route::prefix('admin')
             Route::put('plans/{url}', 'PlanController@update')->name('plans.update');
 
             // Routes Profiles
-            Route::any('plans/search', 'ACL\ProfileController@search')->name('profiles.search');
+            Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
             Route::resource('profiles', 'ACL\ProfileController');
+
+            // Routes Permissions
+            Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
+            Route::resource('permissions', 'ACL\PermissionController');
 });
 
 
