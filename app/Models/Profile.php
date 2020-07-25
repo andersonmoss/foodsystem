@@ -16,4 +16,8 @@ class Profile extends Model
 
         return $results;
     }
+
+    public function permissions(){
+        return $this->belongsToMany(Permission::class);
+    }
 }

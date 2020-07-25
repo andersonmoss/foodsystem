@@ -15,7 +15,19 @@ class CreatePermissionProfileTable extends Migration
     {
         Schema::create('permission_profile', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedBigInteger('permission_id');
+            $table->unsignedBigInteger('profile_id');
+
+            $table->foreign('permission_id')
+                  ->references('id')
+                  ->on('permissions')
+                  ->onDelete('cascade');
+                  
+            $table->foreign('profile_id')
+                  ->references('id')
+                  ->on('profiles')
+                  ->onDelete('cascade');
+            
         });
     }
 

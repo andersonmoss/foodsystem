@@ -10,7 +10,7 @@
         <li class="breadcrumb-item active"><a href="{{route('permissions.index')}}">Perfis</a></li>
     </ol>
 
-    <h1>Dash <a href="{{route('permissions.create')}}" class="btn btn-dark">ADD</a> </h1>
+    <h1>Permissões <a href="{{route('permissions.create')}}" class="btn btn-dark">ADD</a> </h1>
     
 @endsection
 

@@ -10,7 +10,7 @@
         <li class="breadcrumb-item active"><a href="{{route('plans.index')}}">Planos</a></li>
     </ol>
 
-    <h1>Dash <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
+    <h1>Planos <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
     
 @endsection
 
