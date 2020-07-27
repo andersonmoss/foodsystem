@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{$permission->name}}</td>
                             <td>
-                                <a href="{{route('permissions.edit', $permission->id)}}" class="btn btn-info">Editar</a>
+                                <a href="{{route('profiles.permissions.detach',[$profile->id, $permission->id])}}" class="btn btn-info">Remover</a>
                             </td>
                         </tr>
                     @endforeach
