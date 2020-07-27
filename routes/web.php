@@ -43,7 +43,7 @@ Route::prefix('admin')
             Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@index')->name('profiles.permissions');
             Route::get('profiles/{id}/permissions/available', 'ACL\PermissionProfileController@available')->name('profiles.permissions.available');
             
-
+            Route::get('permissions/{id}/profiles', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');
             
 
 });
