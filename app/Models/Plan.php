@@ -12,6 +12,10 @@ class Plan extends Model
         return $this->hasMany(PlanDetail::class);
     }
 
+    public function profiles(){
+        return $this->belongsToMany(Profile::class);
+    }
+
     public function search($filter = null) {
         $results = $this->where('name', 'LIKE', "%{$filter}%")
                         ->orWhere('description', 'LIKE', "%{$filter}%")
@@ -20,4 +24,15 @@ class Plan extends Model
 
         return $results;
     }
+
+    // public function plansAvailable(){
+    //     $plans = Plan::whereNotIn('id', function($query){
+    //         $query->select('plan_profile.plan_id');
+    //         $query->from('plan_profile');
+    //         $query->whereRaw("plan_profile.profile_id={$this->id}");
+    //     })
+    //     ->get();
+
+    //     return $plans;
+    // }
 }
